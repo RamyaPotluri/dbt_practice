@@ -14,7 +14,9 @@ select o.ORDERID ,
      c.COUNTRY,
      p.PRODUCTNAME,
      p.CATEGORY,
-     p.subCATEGORY
+     p.subCATEGORY,
+     o.PRODUCTID,
+     o.CUSTOMERID
 from {{ ref('raw_orders') }} as o
 left join {{ ref('raw_customers') }} as c
 on o.CUSTOMERID=c.CUSTOMERID
